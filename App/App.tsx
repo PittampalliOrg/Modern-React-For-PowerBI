@@ -38,8 +38,6 @@ const App = () => {
         let workspace: PowerBiWorkspace = (currentWorkspaceId === MyWorkspace.id) ?
           MyWorkspace :
           powerBiWorkspaces.find(workspace => workspace.id === currentWorkspaceId);
-console.log("Got here");
-console.log(workspace);
 
         setCurrentWorkspaceName(workspace.name);
         setCurrentWorkspaceIsReadOnly(workspace.isReadOnly);
