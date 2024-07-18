@@ -20,6 +20,7 @@ const App = () => {
   const [reports, setReports] = useState<PowerBiReport[] | null>(null);
   const [datasets, setDatasets] = useState<PowerBiDataset[] | null>(null);
   const [workspaceArtifactsLoading, setWorkspaceArtifactsLoading] = useState<boolean>(false);
+  
 
   useEffect(() => {
     const getPowerBiDataAsync = async () => {

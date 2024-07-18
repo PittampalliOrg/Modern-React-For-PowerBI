@@ -1,0 +1,41 @@
+{
+    "report": {
+        "id": "ed0f6148-3613-4f3a-ac15-87c8d970aa5a",
+        "displayName": "datamodel"
+    },
+    "page": {
+        "name": "8e222e05605b23dd0d86",
+        "displayName": "Page 1"
+    },
+    "visual": {
+        "name": "2aea3a1d001e242e1282",
+        "type": "clusteredBarChart",
+        "title": "Clustered bar chart"
+    },
+    "dataPoints": [
+        {
+            "identity": [
+                {
+                    "target": {
+                        "table": "advisor",
+                        "column": "lastNm"
+                    },
+                    "equals": "DAVIS"
+                }
+            ],
+            "values": [
+                {
+                    "target": {
+                        "$schema": "http://powerbi.com/product/schema#column",
+                        "column": "lastNm",
+                        "table": "advisor"
+                    },
+                    "value": "DAVIS",
+                    "formattedValue": "DAVIS"
+                }
+            ]
+        }
+    ],
+    "regions": null,
+    "filters": []
+}

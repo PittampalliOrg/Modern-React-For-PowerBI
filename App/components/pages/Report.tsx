@@ -44,6 +44,7 @@ const Report = () => {
     const [viewMode, setViewMode] = useState<ViewMode>("FitToPage");
 
     const [reportPath, setReportPath] = useState("");
+    const [dataSelected, setDataSelected] = useState("");
 
     const embedExistingReport = async (WorkspaceId: string, ReportId: string) => {
 
@@ -108,10 +109,15 @@ const Report = () => {
         var embeddedReport: powerbi.Report = (window.powerbi.embed(embedContainer.current, config) as powerbi.Report);
 
         embeddedReport.on("filtersApplied", (args) => { embeddedReport.savePersistentFilters(); });
-        embeddedReport.on("dataSelected", (args) => { embeddedReport.savePersistentFilters(); });
+        embeddedReport.on("dataSelected", (event: powerbi.service.ICustomEvent<any>) => {
+            setDataSelected(event.detail.dataPoints.map((dataPoint: any) => dataPoint.values[0].value));
+            console.log(dataSelected);
+        });
+
+        //embeddedReport.on("dataSelected", (args) => { embeddedReport.savePersistentFilters(); });
         embeddedReport.on("visualClicked", (args) => { embeddedReport.savePersistentFilters(); });
         embeddedReport.on("selectionChanged", (args) => { embeddedReport.savePersistentFilters(); });
-  
+
         setEmbeddedReport(embeddedReport);
         console.log(embeddedReport);
 
