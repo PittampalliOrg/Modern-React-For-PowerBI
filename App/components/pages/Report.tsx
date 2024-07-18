@@ -109,12 +109,14 @@ const Report = () => {
         var embeddedReport: powerbi.Report = (window.powerbi.embed(embedContainer.current, config) as powerbi.Report);
 
         embeddedReport.on("filtersApplied", (args) => { embeddedReport.savePersistentFilters(); });
+
         embeddedReport.on("dataSelected", (event: powerbi.service.ICustomEvent<any>) => {
             setDataSelected(event.detail.dataPoints.map((dataPoint: any) => dataPoint.values[0].value));
-            console.log(dataSelected);
+            alert("Data selected: " + event.detail.dataPoints.map((dataPoint: any) => dataPoint.values[0].value));
+            console.log(event);
         });
 
-        //embeddedReport.on("dataSelected", (args) => { embeddedReport.savePersistentFilters(); });
+        embeddedReport.on("dataSelected", (args) => { embeddedReport.savePersistentFilters(); });
         embeddedReport.on("visualClicked", (args) => { embeddedReport.savePersistentFilters(); });
         embeddedReport.on("selectionChanged", (args) => { embeddedReport.savePersistentFilters(); });
 
